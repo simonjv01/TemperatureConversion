@@ -1,3 +1,5 @@
+import java.text.NumberFormat;
+
 public class TemperatureConversion {
     
     public static void main(String[] args) {
@@ -27,8 +29,18 @@ public class TemperatureConversion {
         System.out.println("-----------------------");
         }
 
-    private static void printNumber(double celsius, int wIDTH, int aCCURACY) {
-        // TODO Auto-generated method stub
+    private static void printNumber(double d, int minWidth, int fractionDigits) {
+        // Note: getNumberInstance() creates a NumberFormat object using local 
+        // information about the characters for a decimal point and separators.
+        NumberFormat form = NumberFormat.getNumberInstance();
+        String output;
+        int i;
+        int length;
+
+        // Set the number of digits to appear on the right of the decimal.
+        if (fractionDigits < 0)
+            throw new IllegalArgumentException("fractionDigits < 0:" + fractionDigits)
+        
         throw new UnsupportedOperationException("Unimplemented method 'printNumber'");
     }
 
