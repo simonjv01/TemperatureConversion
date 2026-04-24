@@ -26,6 +26,21 @@ public class TemperatureConversion {
         }
         System.out.println("-----------------------");
         }
+
+    private static void printNumber(double celsius, int wIDTH, int aCCURACY) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'printNumber'");
     }
+
+    private static double celsiusToFahrenheit(double c) {
     
-}
+        final double MINIMUM_CELSIUS = -273.16;
+        if (c < MINIMUM_CELSIUS) 
+            throw new IllegalArgumentException("Argument " + c + " is too low.");
+        return (9.0 / 5.0) * c + 32.0;
+        }
+        
+    }
+
+    
+
