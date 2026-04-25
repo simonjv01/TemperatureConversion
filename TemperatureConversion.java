@@ -39,9 +39,23 @@ public class TemperatureConversion {
 
         // Set the number of digits to appear on the right of the decimal.
         if (fractionDigits < 0)
-            throw new IllegalArgumentException("fractionDigits < 0:" + fractionDigits)
+            throw new IllegalArgumentException("fractionDigits < 0:" + fractionDigits);
         
-        throw new UnsupportedOperationException("Unimplemented method 'printNumber'");
+        form.setMinimumFractionDigits(fractionDigits);
+        form.setMaximumFractionDigits(fractionDigits);
+
+        // Round and format the number. Added code to handle a Java bug that occurs when fractionDigits
+        // is zero.
+        output = form.format(d);
+        length = output.length();
+        if (fractionDigits == 0 && length > 1 && output.charAt(length-2) == '.')
+            output = " " + output.substring(0, length-2);
+        
+        // print any leading spaces and the number itself.
+        for (i = output.length(); i < minWidth; i++) {
+            System.out.println(' ');
+        System.out.println(output);
+        }
     }
 
     private static double celsiusToFahrenheit(double c) {
